@@ -12,6 +12,7 @@ import { zoomApi } from './zoomApi';
     const attendRole = 0;
     const zoomapi = new zoomApi(token);
     const meetingType = 2;
+    const loginUser = kintone.getLoginUser();
 
     let detailHandle = event => {
         kintone.app.record.setFieldShown('relatedZoomClient', false);
@@ -21,8 +22,7 @@ import { zoomApi } from './zoomApi';
         if (document.getElementById('join') !== null) {
             return;
         }
-        let loginUser = kintone.getLoginUser();
-
+        
         let addZoomDom = zoomClientUrl => {
             if (document.getElementById('zoom') !== null) {
                 document.getElementById('zoom').remove();
@@ -155,7 +155,8 @@ import { zoomApi } from './zoomApi';
             "topic": record.topic.value,
             "type": meetingType,
             "start_time": record.start_time.value,
-            "duration": record.duration.value
+            "duration": record.duration.value,
+            "timezone": loginUser.timezone
         };
         let user = await zoomapi.getUsers();
         let userId = user.users[0]['id'];
