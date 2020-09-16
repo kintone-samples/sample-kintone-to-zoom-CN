@@ -1,0 +1,31 @@
+{
+  "name": "zoom_web_client",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "webpack --mode production",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.3.1",
+    "@cybozu/eslint-config": "^8.0.0",
+    "@kintone/plugin-packer": "^1.0.1",
+    "babel-loader": "^8.0.5",
+    "dotenv": "^8.2.0",
+    "env-cmd": "^10.1.0",
+    "eslint": "^6.6.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "glob": "^7.1.6",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "@kintone/kintone-ui-component": "^0.7.4",
+    "core-js": "^3.6.4",
+    "cross-env": "^7.0.2",
+    "css-loader": "^4.2.2",
+    "style-loader": "^1.2.1"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "manifest_version": 1,
+  "version": 1,
+  "type": "APP",
+  "config": {
+    "js": [
+      "js/config.js"
+    ],
+    "html": "html/config.html",
+    "css": []
+  },
+  "desktop": {
+    "js": [
+      "https://source.zoom.us/1.7.10/lib/vendor/react.min.js",
+      "https://source.zoom.us/1.7.10/lib/vendor/react-dom.min.js",
+      "https://source.zoom.us/1.7.10/lib/vendor/redux.min.js",
+      "https://source.zoom.us/1.7.10/lib/vendor/redux-thunk.min.js",
+      "https://source.zoom.us/1.7.10/lib/vendor/jquery.min.js",
+      "https://source.zoom.us/1.7.10/lib/vendor/lodash.min.js",
+      "https://source.zoom.us/zoom-meeting-1.7.10.min.js",
+      "js/tool.js",
+      "js/vconsole.min.js",
+      "js/zoom.js"
+    ],
+    "css": [
+      "https://source.zoom.us/1.7.10/css/bootstrap.css",
+      "https://source.zoom.us/1.7.10/css/react-select.css",
+      "css/zoom.css"
+    ]
+  },
+  "mobile": {
+    "js": [
+      "https://source.zoom.us/1.7.10/lib/vendor/react.min.js",
+      "https://source.zoom.us/1.7.10/lib/vendor/react-dom.min.js",
+      "https://source.zoom.us/1.7.10/lib/vendor/redux.min.js",
+      "https://source.zoom.us/1.7.10/lib/vendor/redux-thunk.min.js",
+      "https://source.zoom.us/1.7.10/lib/vendor/jquery.min.js",
+      "https://source.zoom.us/1.7.10/lib/vendor/lodash.min.js",
+      "https://source.zoom.us/zoom-meeting-1.7.10.min.js",
+      "js/tool.js",
+      "js/vconsole.min.js",
+      "js/zoom.js"
+    ],
+    "css": [
+      "https://source.zoom.us/1.7.10/css/bootstrap.css",
+      "https://source.zoom.us/1.7.10/css/react-select.css",
+      "css/zoom.css"
+    ]
+  },
+  "icon": "image/icon.png",
+  "name": {
+    "en": "ZoomWebClient"
+  },
+  "description": {
+    "en": "ZoomWebClient"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "manifest_version": 1,
+  "version": 2,
+  "type": "APP",
+  "config": {
+    "js": [
+      "js/config.js"
+    ],
+    "html": "html/config.html",
+    "css": []
+  },
+  "desktop": {
+    "js": [
+      "js/index.js"
+    ],
+    "css": [
+      "https://source.zoom.us/1.7.10/css/bootstrap.css"
+    ]
+  },
+  "mobile": {
+    "js": [
+      "js/mobile.js"
+    ],
+    "css": [
+      "https://source.zoom.us/1.7.10/css/bootstrap.css"
+    ]
+  },
+  "icon": "image/icon.png",
+  "name": {
+    "en": "kintone2Zoom"
+  },
+  "description": {
+    "en": "kintone2Zoom"
+  }
+}
