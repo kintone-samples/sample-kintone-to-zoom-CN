@@ -51,7 +51,7 @@ import { zoomApi } from './zoomApi';
                 let record = resp.record;
                 return record["host"].value;
             }, error => {
-                console.log(error);
+                reject(error);
             });
         }
 
@@ -146,9 +146,17 @@ import { zoomApi } from './zoomApi';
             "start_time": record.start_time.value,
             "duration": record.duration.value
         };
-        let user = await zoomapi.getUsers();
+        let user = await zoomapi.getUsers().catch(e => {
+            let resp = JSON.parse(e[0]);
+            alert(resp.message);
+        });
+        if (!user) return;
         let userId = user.users[0]['id'];
-        let meetingInfo = await zoomapi.createMeeting(userId, data);
+        let meetingInfo = await zoomapi.createMeeting(userId, data).catch(e => { 
+            let resp = JSON.parse(e[0]);
+            alert(resp.message);
+        });
+        if (!meetingInfo) return;
         record['meetingNumber']['value'] = meetingInfo.id;
         record['join_url']['value'] = meetingInfo.join_url;
         record['password']['value'] = meetingInfo.encrypted_password;
@@ -168,7 +176,10 @@ import { zoomApi } from './zoomApi';
     kintone.events.on(['mobile.app.record.detail.delete.submit', 'mobile.app.record.index.delete.submit'], event => {
         let record = event.record;
         let meetingId = Number(record.meetingNumber.value);
-        return zoomapi.deleteMeeting(meetingId);
+        return zoomapi.deleteMeeting(meetingId).catch(e => { 
+            let resp = JSON.parse(e[0]);
+            alert(resp.message);
+        });
     });
 })(kintone.$PLUGIN_ID);
 

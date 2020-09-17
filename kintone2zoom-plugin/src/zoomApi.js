@@ -15,10 +15,15 @@ export class zoomApi {
         };
 
         return kintone.proxy(this.zoomUrl(apiUrl), 'GET', headers, '').then(args => {
-            let resp = JSON.parse(args[0]);
-            return resp;
+            if (args[1] === 200) {
+                let resp = JSON.parse(args[0]);
+                return resp;
+            }
+            else {
+                return Promise.reject(args);
+            }
         }).catch(e => {
-            console.log(e);
+            return Promise.reject(e);
         });
     }
 
@@ -29,10 +34,15 @@ export class zoomApi {
             'Content-Type': 'application/json'
         };
         return kintone.proxy(this.zoomUrl(apiUrl), 'POST', headers, data).then(args => {
-            let resp = JSON.parse(args[0]);
-            return resp;
+            if (args[1] === 201) {
+                let resp = JSON.parse(args[0]);
+                return resp;
+            }
+            else {
+                return Promise.reject(args);
+            }
         }).catch(e => {
-            console.log(e);
+            return Promise.reject(e);
         });
     }
 
@@ -44,7 +54,7 @@ export class zoomApi {
         return kintone.proxy(this.zoomUrl(apiUrl), 'DELETE', headers, '').then(args => {
             if (args[1] !== 204) alert("update to zoom failed");
         }).catch(e => {
-            console.log(e);
+            return Promise.reject(e);
         });
     }
 }
