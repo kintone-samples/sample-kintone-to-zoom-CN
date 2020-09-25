@@ -207,7 +207,7 @@ import {ZoomApi} from './zoomApi';
     record[meetingNumber].value = meetingInfo.id;
     record[join_url].value = meetingInfo.join_url;
     record[password].value = meetingInfo.encrypted_password;
-
+    return event;
   });
   // レコード作成/編集、一覧編集画面が表示されるときの処理
   kintone.events.on(['app.record.create.show', 'app.record.edit.show', 'app.record.index.edit.show'], event => {

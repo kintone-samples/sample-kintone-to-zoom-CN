@@ -50,7 +50,7 @@ export class ZoomApi {
 
   // zoomミーティングを削除する処理
   deleteMeeting(meetingId) {
-    const apiUrl = `meetings/${meetingId}`;
+    const apiUrl = `/meetings/${meetingId}`;
     const headers = {
       'authorization': this.authorization
     };

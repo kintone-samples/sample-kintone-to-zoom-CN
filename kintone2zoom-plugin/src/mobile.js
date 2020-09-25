@@ -169,7 +169,7 @@ import {ZoomApi} from './zoomApi';
     record[meetingNumber].value = meetingInfo.id;
     record[join_url].value = meetingInfo.join_url;
     record[password].value = meetingInfo.encrypted_password;
-
+    return event;
   });
 
   kintone.events.on(['mobile.app.record.create.show', 'mobile.app.record.index.edit.show', 'mobile.app.record.edit.show'], event => {
