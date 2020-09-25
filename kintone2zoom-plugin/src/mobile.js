@@ -159,13 +159,13 @@ import {ZoomApi} from './zoomApi';
       const resp = JSON.parse(error[0]);
       alert(resp.message);
     });
-    if (!user) return;
+    if (!user) return event;
     const userId = user.users[0].id;
     const meetingInfo = await zoomapi.createMeeting(userId, data).catch(error => {
       const resp = JSON.parse(error[0]);
       alert(resp.message);
     });
-    if (!meetingInfo) return;
+    if (!meetingInfo) return event;
     record[meetingNumber].value = meetingInfo.id;
     record[join_url].value = meetingInfo.join_url;
     record[password].value = meetingInfo.encrypted_password;
