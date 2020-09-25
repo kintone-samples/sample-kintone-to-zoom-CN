@@ -1,4 +1,4 @@
-export class zoomApi {
+export class ZoomApi {
   constructor(token) {
     this.preUrl = 'https://api.zoom.us/v2';
     this.authorization = `Bearer ${token}`;
