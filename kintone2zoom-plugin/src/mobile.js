@@ -1,11 +1,6 @@
 import {ZoomApi} from './zoomApi';
 
 ((PLUGIN_ID) => {
-  const config = kintone.plugin.app.getConfig(PLUGIN_ID);
-  if (!('token' in config)) {
-    return;
-  }
-  const token = config.token;
 
   const topic = 'topic';
   const start_time = 'start_time';
@@ -21,7 +16,7 @@ import {ZoomApi} from './zoomApi';
   const zoomClientApp = kintone.mobile.app.getRelatedRecordsTargetAppId(relatedZoomClient);
   const hostRole = 1;
   const attendRole = 0;
-  const zoomapi = new ZoomApi(token);
+  const zoomapi = new ZoomApi(PLUGIN_ID);
   const meetingType = 2;
 
   const detailHandle = event => {

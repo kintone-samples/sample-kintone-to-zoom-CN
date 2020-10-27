@@ -1,7 +1,7 @@
 export class ZoomApi {
-  constructor(token) {
+  constructor(PLUGIN_ID) {
     this.preUrl = 'https://api.zoom.us/v2';
-    this.authorization = `Bearer ${token}`;
+    this.plugin_id = PLUGIN_ID;
   }
 
   zoomUrl(apiUrl) {
@@ -11,11 +11,8 @@ export class ZoomApi {
   // zoomユーザーを取得する処理
   getUsers() {
     const apiUrl = '/users';
-    const headers = {
-      'authorization': this.authorization
-    };
 
-    return kintone.proxy(this.zoomUrl(apiUrl), 'GET', headers, '').then(args => {
+    return kintone.plugin.app.proxy(this.plugin_id, this.zoomUrl(apiUrl), 'GET', {}, '').then(args => {
       if (args[1] === 200) {
         const resp = JSON.parse(args[0]);
         return resp;
@@ -32,10 +29,9 @@ export class ZoomApi {
   createMeeting(userId, data) {
     const apiUrl = `/users/${userId}/meetings`;
     const headers = {
-      'authorization': this.authorization,
       'Content-Type': 'application/json'
     };
-    return kintone.proxy(this.zoomUrl(apiUrl), 'POST', headers, data).then(args => {
+    return kintone.plugin.app.proxy(this.plugin_id, this.zoomUrl(apiUrl), 'POST', headers, data).then(args => {
       if (args[1] === 201) {
         const resp = JSON.parse(args[0]);
         return resp;
@@ -51,10 +47,7 @@ export class ZoomApi {
   // zoomミーティングを削除する処理
   deleteMeeting(meetingId) {
     const apiUrl = `/meetings/${meetingId}`;
-    const headers = {
-      'authorization': this.authorization
-    };
-    return kintone.proxy(this.zoomUrl(apiUrl), 'DELETE', headers, '').then(args => {
+    return kintone.plugin.app.proxy(this.plugin_id, this.zoomUrl(apiUrl), 'DELETE', {}, '').then(args => {
       if (args[1] !== 204) alert('update to zoom failed');
     }).catch(error => {
       return Promise.reject(error);

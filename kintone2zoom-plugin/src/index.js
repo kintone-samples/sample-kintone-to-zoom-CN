@@ -1,12 +1,6 @@
-import {ZoomApi} from './zoomApi';
+import { ZoomApi } from './zoomApi';
 
 ((PLUGIN_ID) => {
-  // 設定値読み込み用変数
-  const config = kintone.plugin.app.getConfig(PLUGIN_ID);
-  // 設定値の読み込み
-  if (!('token' in config)) {
-    return;
-  }
   // フィールドコードを変数に格納
   const topic = 'topic';
   const start_time = 'start_time';
@@ -20,14 +14,13 @@ import {ZoomApi} from './zoomApi';
   const joinSpace = 'join';
   const zoomSpace = 'zoom';
 
-  const token = config.token;
   // zoomClientアプリのIDを取得
   const zoomClientApp = kintone.app.getRelatedRecordsTargetAppId(relatedZoomClient);
   // ホストのrole番号「1」を代入
   const hostRole = 1;
   // 参加者のrole番号「0」を代入
   const attendRole = 0;
-  const zoomapi = new ZoomApi(token);
+  const zoomapi = new ZoomApi(PLUGIN_ID);
   // ミーティングタイプは「2」の「Scheduled meeting」を指定
   const meetingType = 2;
   const loginUser = kintone.getLoginUser();
@@ -124,7 +117,7 @@ import {ZoomApi} from './zoomApi';
 
     // データを初期化し、「ホスト」「参加」ボタンを生成
     const zoom = {
-      init: function() {
+      init: function () {
         this.addHost();
         this.addJoin();
       },
