@@ -25,5 +25,6 @@ import { Label, Text, Button } from '@kintone/kintone-ui-component/esm/js';
     };
     kintone.plugin.app.setProxyConfig('https://api.zoom.us/v2', 'POST', pluginHeader, {});
     kintone.plugin.app.setProxyConfig('https://api.zoom.us/v2', 'GET', pluginHeader, {});
+    kintone.plugin.app.setProxyConfig('https://api.zoom.us/v2', 'DELETE', pluginHeader, {});
   });
 })(kintone.$PLUGIN_ID);
