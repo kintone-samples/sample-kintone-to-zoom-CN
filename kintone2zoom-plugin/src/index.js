@@ -1,4 +1,4 @@
-import { ZoomApi } from './zoomApi';
+import {ZoomApi} from './zoomApi';
 
 ((PLUGIN_ID) => {
   // フィールドコードを変数に格納
@@ -117,7 +117,7 @@ import { ZoomApi } from './zoomApi';
 
     // データを初期化し、「ホスト」「参加」ボタンを生成
     const zoom = {
-      init: function () {
+      init: function() {
         this.addHost();
         this.addJoin();
       },
